@@ -1,0 +1,148 @@
+entity Transactions {
+    currencyCode String required
+    amount Double required
+    isReversed Boolean required
+    transactionDate LocalDate required
+}
+
+entity MedicalService {
+    name String unique
+    isActive Boolean required
+    price Double required
+}
+
+entity Department {
+    name String unique
+    hierarchy String
+    descriptions String
+    openingDate Date
+    extraId String
+}
+
+/** 会诊 */
+entity ConsultationResource {
+    fromdate LocalDate required
+    todate LocalDate required
+    isActive Boolean
+    isAdmitted Boolean
+}
+/** 
+药品 
+*/
+entity Medicine {
+    name String required
+    company String required
+    compositions String required // 成分
+    units Integer
+    price Double
+}
+
+/** 工作人员 */
+entity Staff {
+    username String unique
+    fullName String maxlength(20)
+    contacts String
+    imageUrl String
+    level String
+    email String
+    isActive Boolean
+    isAcailable Boolean
+}
+
+entity Patient {
+    name String required maxlength(100)
+    guardianName String maxlength(100)
+    phone String maxlength(15)
+    address String maxlength(200)
+    emailAddress String maxlength(20)
+    height String maxlength(10) required
+    weight String maxlength(10) required
+    bloodPressure String maxlength(10) required
+    age Integer required
+    isAdmitted Boolean required
+    patientPhoto String maxlength(255)
+    bloodGroup String
+    note String
+    symptoms String maxlength(550)
+    marriageStatus String maxlength(25)
+    gender String
+    isActive Boolean required
+}
+
+entity Diagnosis {
+    symptoms String required
+    date LocalDate required
+}
+
+entity Admission {
+    isActive Boolean required
+    fromDateTime LocalDate required
+    toDateTime LocalDate
+}
+
+entity MedicineGroup {
+    name String required maxlength(200)
+    descriptions String required maxlength(250)
+}
+
+entity MedicineCategory {
+    name String required maxlength(200)
+    descriptions String maxlength(350)
+}
+
+entity Bed {
+    identifier String unique required maxlength(20)
+    isOccupied Boolean
+}
+
+entity AdmissionVisit {
+    symptoms String required maxlength(550)
+    dateTime LocalDate
+}
+
+entity Ward {
+    name String unique required maxlength(15)
+}
+
+entity MeasurementUnit {
+    unit String required maxlength(100)
+    symbol String required maxlength(20)
+    quantity String maxlength(80)
+}
+
+entity Role {
+    name String
+}
+
+entity Privilege {
+    name String
+}
+
+relationship OneToOne {
+    Staff{ user } to User
+    Patient{ contactsInformation } to ConsultationResource
+    Role{ authority } to Authority
+}
+
+relationship OneToMany {
+    MedicalService{ transcations } to Transactions{ medicalService required }
+    Department { children } to Department{ parent }
+    Department{ staffs } to Staff{ department }
+    Department{ transactions } to Transactions{ department }
+    ConsultationResource{ diagnoses } to Diagnosis{ service }
+    ConsultationResource{ admissions } to Admission{ service }
+    ConsultationResource{ transactions } to Transactions{ consultation required }
+    Medicine{ transactions } to Transactions{ medicine }
+    Staff{ services } to ConsultationResource{ staff }
+    Patient{ consulatationResources } to ConsultationResource{ patient }
+    Admission{ visits } to AdmissionVisit{ admission }
+    Ward{ beds } to Bed { ward }
+    MedicineGroup{ medicines } to Medicine{ group }
+    MedicineCategory{ medicines } to Medicine{ category }
+    MeasurementUnit{ medicineCategories } to MedicineCategory{ measurementUnit } 
+}
+
+relationship ManyToMany {
+    Admission{ beds } to Bed{ admissions }
+    Role { privileges } to Privilege{ roles }
+}
