@@ -1,0 +1,34 @@
+{
+  "name": "Ward",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "unique",
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "15"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "bed",
+      "otherEntityRelationshipName": "ward",
+      "relationshipName": "beds"
+    }
+  ],
+  "changelogDate": "20210222122639",
+  "entityTableName": "ward",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

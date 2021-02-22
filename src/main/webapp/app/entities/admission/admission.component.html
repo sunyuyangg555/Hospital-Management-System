@@ -1,0 +1,77 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalManagementSystemApp.admission.home.title">Admissions</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-admission" [routerLink]="['/admission/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hospitalManagementSystemApp.admission.home.createLabel">
+            Create a new Admission
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="admissions?.length === 0">
+        <span jhiTranslate="hospitalManagementSystemApp.admission.home.notFound">No admissions found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="admissions && admissions.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.admission.isActive">Is Active</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.admission.fromDateTime">From Date Time</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.admission.toDateTime">To Date Time</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.admission.beds">Beds</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.admission.service">Service</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let admission of admissions ;trackBy: trackId">
+                    <td><a [routerLink]="['/admission', admission.id, 'view']">{{ admission.id }}</a></td>
+                    <td>{{ admission.isActive }}</td>
+                    <td>{{ admission.fromDateTime | date:'mediumDate' }}</td>
+                    <td>{{ admission.toDateTime | date:'mediumDate' }}</td>
+                    <td>
+                        <span *ngFor="let beds of admission.beds; let last = last">
+                            <a class="form-control-static" [routerLink]="['/bed', beds?.id, 'view']">{{ beds.id }}</a>{{ last ? '' : ', ' }}
+                        </span>
+                    </td>
+                    <td>
+                        <div *ngIf="admission.service">
+                            <a [routerLink]="['/consultation-resource', admission.service?.id, 'view']" >{{ admission.service?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/admission', admission.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/admission', admission.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(admission)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

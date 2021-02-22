@@ -1,0 +1,24 @@
+{
+  "hospitalManagementSystemApp": {
+    "medicineGroup": {
+      "home": {
+        "title": "Medicine Groups",
+        "createLabel": "建立一筆新的 Medicine Group",
+        "createOrEditLabel": "建立或編輯 Medicine Group",
+        "notFound": "No Medicine Groups found"
+      },
+      "created": "新的 Medicine Group 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Medicine Group 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Medicine Group 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Medicine Group {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Medicine Group"
+      },
+      "name": "Name",
+      "descriptions": "Descriptions",
+      "medicines": "Medicines"
+    }
+  }
+}

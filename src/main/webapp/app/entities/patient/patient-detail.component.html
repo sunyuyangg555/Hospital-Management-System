@@ -1,0 +1,100 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="patient">
+            <h2><span jhiTranslate="hospitalManagementSystemApp.patient.detail.title">Patient</span> {{ patient.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.name">Name</span></dt>
+                <dd>
+                    <span>{{ patient.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.guardianName">Guardian Name</span></dt>
+                <dd>
+                    <span>{{ patient.guardianName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.phone">Phone</span></dt>
+                <dd>
+                    <span>{{ patient.phone }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.address">Address</span></dt>
+                <dd>
+                    <span>{{ patient.address }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.emailAddress">Email Address</span></dt>
+                <dd>
+                    <span>{{ patient.emailAddress }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.height">Height</span></dt>
+                <dd>
+                    <span>{{ patient.height }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.weight">Weight</span></dt>
+                <dd>
+                    <span>{{ patient.weight }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.bloodPressure">Blood Pressure</span></dt>
+                <dd>
+                    <span>{{ patient.bloodPressure }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.age">Age</span></dt>
+                <dd>
+                    <span>{{ patient.age }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.isAdmitted">Is Admitted</span></dt>
+                <dd>
+                    <span>{{ patient.isAdmitted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.patientPhoto">Patient Photo</span></dt>
+                <dd>
+                    <span>{{ patient.patientPhoto }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.bloodGroup">Blood Group</span></dt>
+                <dd>
+                    <span>{{ patient.bloodGroup }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.note">Note</span></dt>
+                <dd>
+                    <span>{{ patient.note }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.symptoms">Symptoms</span></dt>
+                <dd>
+                    <span>{{ patient.symptoms }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.marriageStatus">Marriage Status</span></dt>
+                <dd>
+                    <span>{{ patient.marriageStatus }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.gender">Gender</span></dt>
+                <dd>
+                    <span>{{ patient.gender }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{ patient.isActive }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.patient.contactsInformation">Contacts Information</span></dt>
+                <dd>
+                    <div *ngIf="patient.contactsInformation">
+                        <a [routerLink]="['/consultation-resource', patient.contactsInformation?.id, 'view']">{{ patient.contactsInformation?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/patient', patient.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

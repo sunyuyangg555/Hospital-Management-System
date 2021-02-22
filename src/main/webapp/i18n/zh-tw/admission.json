@@ -1,0 +1,27 @@
+{
+  "hospitalManagementSystemApp": {
+    "admission": {
+      "home": {
+        "title": "Admissions",
+        "createLabel": "建立一筆新的 Admission",
+        "createOrEditLabel": "建立或編輯 Admission",
+        "notFound": "No Admissions found"
+      },
+      "created": "新的 Admission 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Admission 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Admission 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Admission {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Admission"
+      },
+      "isActive": "Is Active",
+      "fromDateTime": "From Date Time",
+      "toDateTime": "To Date Time",
+      "visits": "Visits",
+      "beds": "Beds",
+      "service": "Service"
+    }
+  }
+}

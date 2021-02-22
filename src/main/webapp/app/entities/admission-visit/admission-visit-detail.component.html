@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="admissionVisit">
+            <h2><span jhiTranslate="hospitalManagementSystemApp.admissionVisit.detail.title">Admission Visit</span> {{ admissionVisit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalManagementSystemApp.admissionVisit.symptoms">Symptoms</span></dt>
+                <dd>
+                    <span>{{ admissionVisit.symptoms }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.admissionVisit.dateTime">Date Time</span></dt>
+                <dd>
+                    <span>{{ admissionVisit.dateTime }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.admissionVisit.admission">Admission</span></dt>
+                <dd>
+                    <div *ngIf="admissionVisit.admission">
+                        <a [routerLink]="['/admission', admissionVisit.admission?.id, 'view']">{{ admissionVisit.admission?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/admission-visit', admissionVisit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

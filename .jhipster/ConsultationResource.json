@@ -1,0 +1,73 @@
+{
+  "name": "ConsultationResource",
+  "fields": [
+    {
+      "fieldName": "fromdate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "todate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean"
+    },
+    {
+      "fieldName": "isAdmitted",
+      "fieldType": "Boolean"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "diagnosis",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "diagnoses"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "admission",
+      "otherEntityRelationshipName": "service",
+      "relationshipName": "admissions"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "transactions",
+      "otherEntityRelationshipName": "consultation",
+      "relationshipName": "transactions"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "staff",
+      "otherEntityRelationshipName": "services",
+      "relationshipName": "staff",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "patient",
+      "otherEntityRelationshipName": "consulatationResources",
+      "relationshipName": "patient",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210222121639",
+  "javadoc": "会诊",
+  "entityTableName": "consultation_resource",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

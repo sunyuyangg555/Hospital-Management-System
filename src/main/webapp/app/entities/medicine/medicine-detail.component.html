@@ -1,0 +1,58 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="medicine">
+            <h2><span jhiTranslate="hospitalManagementSystemApp.medicine.detail.title">Medicine</span> {{ medicine.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalManagementSystemApp.medicine.name">Name</span></dt>
+                <dd>
+                    <span>{{ medicine.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.medicine.company">Company</span></dt>
+                <dd>
+                    <span>{{ medicine.company }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.medicine.compositions">Compositions</span></dt>
+                <dd>
+                    <span>{{ medicine.compositions }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.medicine.units">Units</span></dt>
+                <dd>
+                    <span>{{ medicine.units }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.medicine.price">Price</span></dt>
+                <dd>
+                    <span>{{ medicine.price }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.medicine.group">Group</span></dt>
+                <dd>
+                    <div *ngIf="medicine.group">
+                        <a [routerLink]="['/medicine-group', medicine.group?.id, 'view']">{{ medicine.group?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.medicine.category">Category</span></dt>
+                <dd>
+                    <div *ngIf="medicine.category">
+                        <a [routerLink]="['/medicine-category', medicine.category?.id, 'view']">{{ medicine.category?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/medicine', medicine.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

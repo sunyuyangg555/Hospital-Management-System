@@ -1,0 +1,30 @@
+{
+  "hospitalManagementSystemApp": {
+    "department": {
+      "home": {
+        "title": "Departments",
+        "createLabel": "Create a new Department",
+        "createOrEditLabel": "Create or edit a Department",
+        "notFound": "No Departments found"
+      },
+      "created": "A new Department is created with identifier {{ param }}",
+      "updated": "A Department is updated with identifier {{ param }}",
+      "deleted": "A Department is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Department {{ id }}?"
+      },
+      "detail": {
+        "title": "Department"
+      },
+      "name": "Name",
+      "hierarchy": "Hierarchy",
+      "descriptions": "Descriptions",
+      "openingDate": "Opening Date",
+      "extraId": "Extra Id",
+      "children": "Children",
+      "staffs": "Staffs",
+      "transactions": "Transactions",
+      "parent": "Parent"
+    }
+  }
+}

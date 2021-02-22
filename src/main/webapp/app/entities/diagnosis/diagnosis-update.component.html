@@ -1,0 +1,62 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-diagnosis-heading" jhiTranslate="hospitalManagementSystemApp.diagnosis.home.createOrEditLabel">Create or edit a Diagnosis</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.diagnosis.symptoms" for="field_symptoms">Symptoms</label>
+                    <input type="text" class="form-control" name="symptoms" id="field_symptoms"
+                           formControlName="symptoms"/>
+                    <div *ngIf="editForm.get('symptoms')!.invalid && (editForm.get('symptoms')!.dirty || editForm.get('symptoms')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('symptoms')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.diagnosis.date" for="field_date">Date</label>
+                    <div class="input-group">
+                        <input id="field_date" type="text" class="form-control" name="date" ngbDatepicker #dateDp="ngbDatepicker" formControlName="date"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('date')!.invalid && (editForm.get('date')!.dirty || editForm.get('date')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('date')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.diagnosis.service" for="field_service">Service</label>
+                    <select class="form-control" id="field_service" name="service" formControlName="service">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="consultationResourceOption.id === editForm.get('service')!.value?.id ? editForm.get('service')!.value : consultationResourceOption" *ngFor="let consultationResourceOption of consultationresources; trackBy: trackById">{{ consultationResourceOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

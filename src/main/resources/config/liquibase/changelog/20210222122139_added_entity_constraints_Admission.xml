@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Admission.
+    -->
+    <changeSet id="20210222122139-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="admission_id"
+                                 baseTableName="admission_beds"
+                                 constraintName="fk_admission_beds_admission_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="admission"/>
+
+        <addForeignKeyConstraint baseColumnNames="beds_id"
+                                 baseTableName="admission_beds"
+                                 constraintName="fk_admission_beds_beds_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="bed"/>
+        
+        <addForeignKeyConstraint baseColumnNames="service_id"
+                                 baseTableName="admission"
+                                 constraintName="fk_admission_service_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="consultation_resource"/>
+
+    </changeSet>
+</databaseChangeLog>

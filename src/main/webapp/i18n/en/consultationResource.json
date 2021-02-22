@@ -1,0 +1,30 @@
+{
+  "hospitalManagementSystemApp": {
+    "consultationResource": {
+      "home": {
+        "title": "Consultation Resources",
+        "createLabel": "Create a new Consultation Resource",
+        "createOrEditLabel": "Create or edit a Consultation Resource",
+        "notFound": "No Consultation Resources found"
+      },
+      "created": "A new Consultation Resource is created with identifier {{ param }}",
+      "updated": "A Consultation Resource is updated with identifier {{ param }}",
+      "deleted": "A Consultation Resource is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Consultation Resource {{ id }}?"
+      },
+      "detail": {
+        "title": "Consultation Resource"
+      },
+      "fromdate": "Fromdate",
+      "todate": "Todate",
+      "isActive": "Is Active",
+      "isAdmitted": "Is Admitted",
+      "diagnoses": "Diagnoses",
+      "admissions": "Admissions",
+      "transactions": "Transactions",
+      "staff": "Staff",
+      "patient": "Patient"
+    }
+  }
+}

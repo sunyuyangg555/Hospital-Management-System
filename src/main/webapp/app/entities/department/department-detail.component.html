@@ -1,0 +1,52 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="department">
+            <h2><span jhiTranslate="hospitalManagementSystemApp.department.detail.title">Department</span> {{ department.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalManagementSystemApp.department.name">Name</span></dt>
+                <dd>
+                    <span>{{ department.name }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.department.hierarchy">Hierarchy</span></dt>
+                <dd>
+                    <span>{{ department.hierarchy }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.department.descriptions">Descriptions</span></dt>
+                <dd>
+                    <span>{{ department.descriptions }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.department.openingDate">Opening Date</span></dt>
+                <dd>
+                    <span>{{ department.openingDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.department.extraId">Extra Id</span></dt>
+                <dd>
+                    <span>{{ department.extraId }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.department.parent">Parent</span></dt>
+                <dd>
+                    <div *ngIf="department.parent">
+                        <a [routerLink]="['/department', department.parent?.id, 'view']">{{ department.parent?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/department', department.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

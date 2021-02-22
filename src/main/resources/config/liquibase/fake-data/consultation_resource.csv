@@ -1,0 +1,11 @@
+id;fromdate;todate;is_active;is_admitted
+1;2021-02-21;2021-02-21;true;true
+2;2021-02-22;2021-02-21;false;true
+3;2021-02-22;2021-02-21;false;false
+4;2021-02-21;2021-02-21;false;false
+5;2021-02-22;2021-02-21;false;false
+6;2021-02-21;2021-02-21;true;false
+7;2021-02-21;2021-02-22;true;false
+8;2021-02-21;2021-02-22;true;true
+9;2021-02-21;2021-02-21;false;true
+10;2021-02-21;2021-02-22;false;false

@@ -1,0 +1,50 @@
+{
+  "name": "MeasurementUnit",
+  "fields": [
+    {
+      "fieldName": "unit",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "symbol",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "quantity",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "80"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "medicineCategory",
+      "otherEntityRelationshipName": "measurementUnit",
+      "relationshipName": "medicineCategories"
+    }
+  ],
+  "changelogDate": "20210222122739",
+  "entityTableName": "measurement_unit",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

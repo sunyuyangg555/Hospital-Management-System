@@ -1,0 +1,126 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-transactions-heading" jhiTranslate="hospitalManagementSystemApp.transactions.home.createOrEditLabel">Create or edit a Transactions</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.transactions.currencyCode" for="field_currencyCode">Currency Code</label>
+                    <input type="text" class="form-control" name="currencyCode" id="field_currencyCode"
+                           formControlName="currencyCode"/>
+                    <div *ngIf="editForm.get('currencyCode')!.invalid && (editForm.get('currencyCode')!.dirty || editForm.get('currencyCode')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('currencyCode')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.transactions.amount" for="field_amount">Amount</label>
+                    <input type="number" class="form-control" name="amount" id="field_amount"
+                           formControlName="amount"/>
+                    <div *ngIf="editForm.get('amount')!.invalid && (editForm.get('amount')!.dirty || editForm.get('amount')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('amount')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('amount')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.transactions.isReversed" for="field_isReversed">Is Reversed</label>
+                    <input type="checkbox" class="form-control" name="isReversed" id="field_isReversed"
+                           formControlName="isReversed"/>
+                    <div *ngIf="editForm.get('isReversed')!.invalid && (editForm.get('isReversed')!.dirty || editForm.get('isReversed')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isReversed')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.transactions.transactionDate" for="field_transactionDate">Transaction Date</label>
+                    <div class="input-group">
+                        <input id="field_transactionDate" type="text" class="form-control" name="transactionDate" ngbDatepicker #transactionDateDp="ngbDatepicker" formControlName="transactionDate"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="transactionDateDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('transactionDate')!.invalid && (editForm.get('transactionDate')!.dirty || editForm.get('transactionDate')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('transactionDate')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.transactions.medicalService" for="field_medicalService">Medical Service</label>
+                    <select class="form-control" id="field_medicalService" name="medicalService" formControlName="medicalService">
+                        <option *ngIf="!editForm.get('medicalService')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="medicalServiceOption.id === editForm.get('medicalService')!.value?.id ? editForm.get('medicalService')!.value : medicalServiceOption" *ngFor="let medicalServiceOption of medicalservices; trackBy: trackById">{{ medicalServiceOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('medicalService')!.invalid && (editForm.get('medicalService')!.dirty || editForm.get('medicalService')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('medicalService')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.transactions.department" for="field_department">Department</label>
+                    <select class="form-control" id="field_department" name="department" formControlName="department">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="departmentOption.id === editForm.get('department')!.value?.id ? editForm.get('department')!.value : departmentOption" *ngFor="let departmentOption of departments; trackBy: trackById">{{ departmentOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.transactions.consultation" for="field_consultation">Consultation</label>
+                    <select class="form-control" id="field_consultation" name="consultation" formControlName="consultation">
+                        <option *ngIf="!editForm.get('consultation')!.value" [ngValue]="null" selected></option>
+                        <option [ngValue]="consultationResourceOption.id === editForm.get('consultation')!.value?.id ? editForm.get('consultation')!.value : consultationResourceOption" *ngFor="let consultationResourceOption of consultationresources; trackBy: trackById">{{ consultationResourceOption.id }}</option>
+                    </select>
+                </div>
+                <div *ngIf="editForm.get('consultation')!.invalid && (editForm.get('consultation')!.dirty || editForm.get('consultation')!.touched)">
+                    <small class="form-text text-danger"
+                           *ngIf="editForm.get('consultation')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                    </small>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.transactions.medicine" for="field_medicine">Medicine</label>
+                    <select class="form-control" id="field_medicine" name="medicine" formControlName="medicine">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="medicineOption.id === editForm.get('medicine')!.value?.id ? editForm.get('medicine')!.value : medicineOption" *ngFor="let medicineOption of medicines; trackBy: trackById">{{ medicineOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

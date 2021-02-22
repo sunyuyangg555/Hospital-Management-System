@@ -1,0 +1,24 @@
+{
+  "hospitalManagementSystemApp": {
+    "admissionVisit": {
+      "home": {
+        "title": "Admission Visits",
+        "createLabel": "建立一筆新的 Admission Visit",
+        "createOrEditLabel": "建立或編輯 Admission Visit",
+        "notFound": "No Admission Visits found"
+      },
+      "created": "新的 Admission Visit 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Admission Visit 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Admission Visit 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Admission Visit {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Admission Visit"
+      },
+      "symptoms": "Symptoms",
+      "dateTime": "Date Time",
+      "admission": "Admission"
+    }
+  }
+}

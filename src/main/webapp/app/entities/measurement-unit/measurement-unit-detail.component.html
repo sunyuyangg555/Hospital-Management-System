@@ -1,0 +1,38 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="measurementUnit">
+            <h2><span jhiTranslate="hospitalManagementSystemApp.measurementUnit.detail.title">Measurement Unit</span> {{ measurementUnit.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalManagementSystemApp.measurementUnit.unit">Unit</span></dt>
+                <dd>
+                    <span>{{ measurementUnit.unit }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.measurementUnit.symbol">Symbol</span></dt>
+                <dd>
+                    <span>{{ measurementUnit.symbol }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.measurementUnit.quantity">Quantity</span></dt>
+                <dd>
+                    <span>{{ measurementUnit.quantity }}</span>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/measurement-unit', measurementUnit.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

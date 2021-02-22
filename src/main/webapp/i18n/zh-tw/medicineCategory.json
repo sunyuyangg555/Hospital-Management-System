@@ -1,0 +1,25 @@
+{
+  "hospitalManagementSystemApp": {
+    "medicineCategory": {
+      "home": {
+        "title": "Medicine Categories",
+        "createLabel": "建立一筆新的 Medicine Category",
+        "createOrEditLabel": "建立或編輯 Medicine Category",
+        "notFound": "No Medicine Categories found"
+      },
+      "created": "新的 Medicine Category 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Medicine Category 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Medicine Category 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Medicine Category {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Medicine Category"
+      },
+      "name": "Name",
+      "descriptions": "Descriptions",
+      "medicines": "Medicines",
+      "measurementUnit": "Measurement Unit"
+    }
+  }
+}

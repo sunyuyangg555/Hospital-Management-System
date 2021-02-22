@@ -1,0 +1,25 @@
+{
+  "hospitalManagementSystemApp": {
+    "bed": {
+      "home": {
+        "title": "Beds",
+        "createLabel": "建立一筆新的 Bed",
+        "createOrEditLabel": "建立或編輯 Bed",
+        "notFound": "No Beds found"
+      },
+      "created": "新的 Bed 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Bed 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Bed 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Bed {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Bed"
+      },
+      "identifier": "Identifier",
+      "isOccupied": "Is Occupied",
+      "ward": "Ward",
+      "admissions": "Admissions"
+    }
+  }
+}

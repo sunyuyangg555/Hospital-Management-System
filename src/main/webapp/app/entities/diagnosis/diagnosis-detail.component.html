@@ -1,0 +1,40 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="diagnosis">
+            <h2><span jhiTranslate="hospitalManagementSystemApp.diagnosis.detail.title">Diagnosis</span> {{ diagnosis.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalManagementSystemApp.diagnosis.symptoms">Symptoms</span></dt>
+                <dd>
+                    <span>{{ diagnosis.symptoms }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.diagnosis.date">Date</span></dt>
+                <dd>
+                    <span>{{ diagnosis.date }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.diagnosis.service">Service</span></dt>
+                <dd>
+                    <div *ngIf="diagnosis.service">
+                        <a [routerLink]="['/consultation-resource', diagnosis.service?.id, 'view']">{{ diagnosis.service?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/diagnosis', diagnosis.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

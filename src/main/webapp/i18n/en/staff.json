@@ -1,0 +1,32 @@
+{
+  "hospitalManagementSystemApp": {
+    "staff": {
+      "home": {
+        "title": "Staff",
+        "createLabel": "Create a new Staff",
+        "createOrEditLabel": "Create or edit a Staff",
+        "notFound": "No Staff found"
+      },
+      "created": "A new Staff is created with identifier {{ param }}",
+      "updated": "A Staff is updated with identifier {{ param }}",
+      "deleted": "A Staff is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Staff {{ id }}?"
+      },
+      "detail": {
+        "title": "Staff"
+      },
+      "username": "Username",
+      "fullName": "Full Name",
+      "contacts": "Contacts",
+      "imageUrl": "Image Url",
+      "level": "Level",
+      "email": "Email",
+      "isActive": "Is Active",
+      "isAcailable": "Is Acailable",
+      "user": "User",
+      "services": "Services",
+      "department": "Department"
+    }
+  }
+}

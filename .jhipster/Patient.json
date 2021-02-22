@@ -1,0 +1,157 @@
+{
+  "name": "Patient",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "guardianName",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "100"
+    },
+    {
+      "fieldName": "phone",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "15"
+    },
+    {
+      "fieldName": "address",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "200"
+    },
+    {
+      "fieldName": "emailAddress",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "20"
+    },
+    {
+      "fieldName": "height",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "weight",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "bloodPressure",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength",
+        "required"
+      ],
+      "fieldValidateRulesMaxlength": "10"
+    },
+    {
+      "fieldName": "age",
+      "fieldType": "Integer",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "isAdmitted",
+      "fieldType": "Boolean",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "patientPhoto",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "255"
+    },
+    {
+      "fieldName": "bloodGroup",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "note",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "symptoms",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "550"
+    },
+    {
+      "fieldName": "marriageStatus",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "25"
+    },
+    {
+      "fieldName": "gender",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-one",
+      "otherEntityName": "consultationResource",
+      "otherEntityRelationshipName": "patient",
+      "relationshipName": "contactsInformation",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "consultationResource",
+      "otherEntityRelationshipName": "patient",
+      "relationshipName": "consulatationResources"
+    }
+  ],
+  "changelogDate": "20210222121939",
+  "entityTableName": "patient",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

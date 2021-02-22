@@ -1,0 +1,57 @@
+{
+  "name": "Admission",
+  "fields": [
+    {
+      "fieldName": "isActive",
+      "fieldType": "Boolean",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "fromDateTime",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "toDateTime",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "admissionVisit",
+      "otherEntityRelationshipName": "admission",
+      "relationshipName": "visits"
+    },
+    {
+      "relationshipType": "many-to-many",
+      "otherEntityName": "bed",
+      "otherEntityRelationshipName": "admissions",
+      "relationshipName": "beds",
+      "otherEntityField": "id",
+      "ownerSide": true
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "consultationResource",
+      "otherEntityRelationshipName": "admissions",
+      "relationshipName": "service",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210222122139",
+  "entityTableName": "admission",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

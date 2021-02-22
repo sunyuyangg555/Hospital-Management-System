@@ -1,0 +1,76 @@
+{
+  "name": "Transactions",
+  "fields": [
+    {
+      "fieldName": "currencyCode",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "amount",
+      "fieldType": "Double",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "isReversed",
+      "fieldType": "Boolean",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "transactionDate",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "medicalService",
+      "otherEntityRelationshipName": "transcations",
+      "relationshipValidateRules": "required",
+      "relationshipName": "medicalService",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "department",
+      "otherEntityRelationshipName": "transactions",
+      "relationshipName": "department",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "consultationResource",
+      "otherEntityRelationshipName": "transactions",
+      "relationshipValidateRules": "required",
+      "relationshipName": "consultation",
+      "otherEntityField": "id"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "medicine",
+      "otherEntityRelationshipName": "transactions",
+      "relationshipName": "medicine",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210222121339",
+  "entityTableName": "transactions",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

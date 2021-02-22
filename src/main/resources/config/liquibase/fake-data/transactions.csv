@@ -1,0 +1,11 @@
+id;currency_code;amount;is_reversed;transaction_date;medical_service_id;consultation_id
+1;VND;63568;true;2021-02-21;1;1
+2;BGN;39046;true;2021-02-22;2;2
+3;BMD;72457;false;2021-02-22;3;3
+4;ARS;97433;true;2021-02-21;4;4
+5;SEK;67118;false;2021-02-22;5;5
+6;SDG;7144;true;2021-02-21;6;6
+7;DJF;29487;false;2021-02-21;7;7
+8;BGN;12837;true;2021-02-21;8;8
+9;LBP;26851;true;2021-02-22;9;9
+10;MXN MXV;78801;true;2021-02-22;10;10

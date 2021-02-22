@@ -1,0 +1,240 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-patient-heading" jhiTranslate="hospitalManagementSystemApp.patient.home.createOrEditLabel">Create or edit a Patient</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.name" for="field_name">Name</label>
+                    <input type="text" class="form-control" name="name" id="field_name"
+                           formControlName="name"/>
+                    <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('name')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.guardianName" for="field_guardianName">Guardian Name</label>
+                    <input type="text" class="form-control" name="guardianName" id="field_guardianName"
+                           formControlName="guardianName"/>
+                    <div *ngIf="editForm.get('guardianName')!.invalid && (editForm.get('guardianName')!.dirty || editForm.get('guardianName')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('guardianName')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 100 }">
+                        This field cannot be longer than 100 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.phone" for="field_phone">Phone</label>
+                    <input type="text" class="form-control" name="phone" id="field_phone"
+                           formControlName="phone"/>
+                    <div *ngIf="editForm.get('phone')!.invalid && (editForm.get('phone')!.dirty || editForm.get('phone')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('phone')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 15 }">
+                        This field cannot be longer than 15 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.address" for="field_address">Address</label>
+                    <input type="text" class="form-control" name="address" id="field_address"
+                           formControlName="address"/>
+                    <div *ngIf="editForm.get('address')!.invalid && (editForm.get('address')!.dirty || editForm.get('address')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('address')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 200 }">
+                        This field cannot be longer than 200 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.emailAddress" for="field_emailAddress">Email Address</label>
+                    <input type="text" class="form-control" name="emailAddress" id="field_emailAddress"
+                           formControlName="emailAddress"/>
+                    <div *ngIf="editForm.get('emailAddress')!.invalid && (editForm.get('emailAddress')!.dirty || editForm.get('emailAddress')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('emailAddress')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 20 }">
+                        This field cannot be longer than 20 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.height" for="field_height">Height</label>
+                    <input type="text" class="form-control" name="height" id="field_height"
+                           formControlName="height"/>
+                    <div *ngIf="editForm.get('height')!.invalid && (editForm.get('height')!.dirty || editForm.get('height')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('height')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('height')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.weight" for="field_weight">Weight</label>
+                    <input type="text" class="form-control" name="weight" id="field_weight"
+                           formControlName="weight"/>
+                    <div *ngIf="editForm.get('weight')!.invalid && (editForm.get('weight')!.dirty || editForm.get('weight')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('weight')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('weight')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.bloodPressure" for="field_bloodPressure">Blood Pressure</label>
+                    <input type="text" class="form-control" name="bloodPressure" id="field_bloodPressure"
+                           formControlName="bloodPressure"/>
+                    <div *ngIf="editForm.get('bloodPressure')!.invalid && (editForm.get('bloodPressure')!.dirty || editForm.get('bloodPressure')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bloodPressure')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('bloodPressure')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 10 }">
+                        This field cannot be longer than 10 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.age" for="field_age">Age</label>
+                    <input type="number" class="form-control" name="age" id="field_age"
+                           formControlName="age"/>
+                    <div *ngIf="editForm.get('age')!.invalid && (editForm.get('age')!.dirty || editForm.get('age')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('age')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                            [hidden]="!editForm.get('age')?.errors?.number" jhiTranslate="entity.validation.number">
+                            This field should be a number.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.isAdmitted" for="field_isAdmitted">Is Admitted</label>
+                    <input type="checkbox" class="form-control" name="isAdmitted" id="field_isAdmitted"
+                           formControlName="isAdmitted"/>
+                    <div *ngIf="editForm.get('isAdmitted')!.invalid && (editForm.get('isAdmitted')!.dirty || editForm.get('isAdmitted')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isAdmitted')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.patientPhoto" for="field_patientPhoto">Patient Photo</label>
+                    <input type="text" class="form-control" name="patientPhoto" id="field_patientPhoto"
+                           formControlName="patientPhoto"/>
+                    <div *ngIf="editForm.get('patientPhoto')!.invalid && (editForm.get('patientPhoto')!.dirty || editForm.get('patientPhoto')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('patientPhoto')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 255 }">
+                        This field cannot be longer than 255 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.bloodGroup" for="field_bloodGroup">Blood Group</label>
+                    <input type="text" class="form-control" name="bloodGroup" id="field_bloodGroup"
+                           formControlName="bloodGroup"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.note" for="field_note">Note</label>
+                    <input type="text" class="form-control" name="note" id="field_note"
+                           formControlName="note"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.symptoms" for="field_symptoms">Symptoms</label>
+                    <input type="text" class="form-control" name="symptoms" id="field_symptoms"
+                           formControlName="symptoms"/>
+                    <div *ngIf="editForm.get('symptoms')!.invalid && (editForm.get('symptoms')!.dirty || editForm.get('symptoms')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('symptoms')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 550 }">
+                        This field cannot be longer than 550 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.marriageStatus" for="field_marriageStatus">Marriage Status</label>
+                    <input type="text" class="form-control" name="marriageStatus" id="field_marriageStatus"
+                           formControlName="marriageStatus"/>
+                    <div *ngIf="editForm.get('marriageStatus')!.invalid && (editForm.get('marriageStatus')!.dirty || editForm.get('marriageStatus')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('marriageStatus')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 25 }">
+                        This field cannot be longer than 25 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.gender" for="field_gender">Gender</label>
+                    <input type="text" class="form-control" name="gender" id="field_gender"
+                           formControlName="gender"/>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.isActive" for="field_isActive">Is Active</label>
+                    <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
+                           formControlName="isActive"/>
+                    <div *ngIf="editForm.get('isActive')!.invalid && (editForm.get('isActive')!.dirty || editForm.get('isActive')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isActive')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.patient.contactsInformation" for="field_contactsInformation">Contacts Information</label>
+                    <select class="form-control" id="field_contactsInformation" name="contactsInformation" formControlName="contactsInformation">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="consultationResourceOption.id === editForm.get('contactsInformation')!.value?.id ? editForm.get('contactsInformation')!.value : consultationResourceOption" *ngFor="let consultationResourceOption of contactsinformations; trackBy: trackById">{{ consultationResourceOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

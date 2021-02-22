@@ -1,0 +1,65 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalManagementSystemApp.measurementUnit.home.title">Measurement Units</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-measurement-unit" [routerLink]="['/measurement-unit/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hospitalManagementSystemApp.measurementUnit.home.createLabel">
+            Create a new Measurement Unit
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="measurementUnits?.length === 0">
+        <span jhiTranslate="hospitalManagementSystemApp.measurementUnit.home.notFound">No measurementUnits found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="measurementUnits && measurementUnits.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.measurementUnit.unit">Unit</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.measurementUnit.symbol">Symbol</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.measurementUnit.quantity">Quantity</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let measurementUnit of measurementUnits ;trackBy: trackId">
+                    <td><a [routerLink]="['/measurement-unit', measurementUnit.id, 'view']">{{ measurementUnit.id }}</a></td>
+                    <td>{{ measurementUnit.unit }}</td>
+                    <td>{{ measurementUnit.symbol }}</td>
+                    <td>{{ measurementUnit.quantity }}</td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/measurement-unit', measurementUnit.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/measurement-unit', measurementUnit.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(measurementUnit)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>

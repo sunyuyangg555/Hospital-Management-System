@@ -1,0 +1,39 @@
+{
+  "name": "Diagnosis",
+  "fields": [
+    {
+      "fieldName": "symptoms",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required"
+      ]
+    },
+    {
+      "fieldName": "date",
+      "fieldType": "LocalDate",
+      "fieldValidateRules": [
+        "required"
+      ]
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "consultationResource",
+      "otherEntityRelationshipName": "diagnoses",
+      "relationshipName": "service",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210222122039",
+  "entityTableName": "diagnosis",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

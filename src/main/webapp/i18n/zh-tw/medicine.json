@@ -1,0 +1,29 @@
+{
+  "hospitalManagementSystemApp": {
+    "medicine": {
+      "home": {
+        "title": "Medicines",
+        "createLabel": "建立一筆新的 Medicine",
+        "createOrEditLabel": "建立或編輯 Medicine",
+        "notFound": "No Medicines found"
+      },
+      "created": "新的 Medicine 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Medicine 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Medicine 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Medicine {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Medicine"
+      },
+      "name": "Name",
+      "company": "Company",
+      "compositions": "Compositions",
+      "units": "Units",
+      "price": "Price",
+      "transactions": "Transactions",
+      "group": "Group",
+      "category": "Category"
+    }
+  }
+}

@@ -1,0 +1,27 @@
+{
+  "hospitalManagementSystemApp": {
+    "admission": {
+      "home": {
+        "title": "Admissions",
+        "createLabel": "Create a new Admission",
+        "createOrEditLabel": "Create or edit a Admission",
+        "notFound": "No Admissions found"
+      },
+      "created": "A new Admission is created with identifier {{ param }}",
+      "updated": "A Admission is updated with identifier {{ param }}",
+      "deleted": "A Admission is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Admission {{ id }}?"
+      },
+      "detail": {
+        "title": "Admission"
+      },
+      "isActive": "Is Active",
+      "fromDateTime": "From Date Time",
+      "toDateTime": "To Date Time",
+      "visits": "Visits",
+      "beds": "Beds",
+      "service": "Service"
+    }
+  }
+}

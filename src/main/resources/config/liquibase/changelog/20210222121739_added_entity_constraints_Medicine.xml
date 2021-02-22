@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Medicine.
+    -->
+    <changeSet id="20210222121739-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="group_id"
+                                 baseTableName="medicine"
+                                 constraintName="fk_medicine_group_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medicine_group"/>
+
+        <addForeignKeyConstraint baseColumnNames="category_id"
+                                 baseTableName="medicine"
+                                 constraintName="fk_medicine_category_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medicine_category"/>
+
+    </changeSet>
+</databaseChangeLog>

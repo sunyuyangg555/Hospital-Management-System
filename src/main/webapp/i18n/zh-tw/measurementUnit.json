@@ -1,0 +1,25 @@
+{
+  "hospitalManagementSystemApp": {
+    "measurementUnit": {
+      "home": {
+        "title": "Measurement Units",
+        "createLabel": "建立一筆新的 Measurement Unit",
+        "createOrEditLabel": "建立或編輯 Measurement Unit",
+        "notFound": "No Measurement Units found"
+      },
+      "created": "新的 Measurement Unit 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Measurement Unit 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Measurement Unit 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Measurement Unit {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Measurement Unit"
+      },
+      "unit": "Unit",
+      "symbol": "Symbol",
+      "quantity": "Quantity",
+      "medicineCategories": "Medicine Categories"
+    }
+  }
+}
