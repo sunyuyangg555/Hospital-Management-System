@@ -1,0 +1,79 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-admission-heading" jhiTranslate="hospitalManagementSystemApp.admission.home.createOrEditLabel">Create or edit a Admission</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.admission.isActive" for="field_isActive">Is Active</label>
+                    <input type="checkbox" class="form-control" name="isActive" id="field_isActive"
+                           formControlName="isActive"/>
+                    <div *ngIf="editForm.get('isActive')!.invalid && (editForm.get('isActive')!.dirty || editForm.get('isActive')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('isActive')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.admission.fromDateTime" for="field_fromDateTime">From Date Time</label>
+                    <div class="input-group">
+                        <input id="field_fromDateTime" type="text" class="form-control" name="fromDateTime" ngbDatepicker #fromDateTimeDp="ngbDatepicker" formControlName="fromDateTime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="fromDateTimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                    <div *ngIf="editForm.get('fromDateTime')!.invalid && (editForm.get('fromDateTime')!.dirty || editForm.get('fromDateTime')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('fromDateTime')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.admission.toDateTime" for="field_toDateTime">To Date Time</label>
+                    <div class="input-group">
+                        <input id="field_toDateTime" type="text" class="form-control" name="toDateTime" ngbDatepicker #toDateTimeDp="ngbDatepicker" formControlName="toDateTime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="toDateTimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label jhiTranslate="hospitalManagementSystemApp.admission.beds" for="field_beds">Beds</label>
+                    <select class="form-control" id="field_beds" multiple name="beds" formControlName="beds">
+                        <option [ngValue]="getSelected(editForm.get('beds')!.value, bedOption)" *ngFor="let bedOption of beds; trackBy: trackById">{{ bedOption.id }}</option>
+                    </select>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.admission.service" for="field_service">Service</label>
+                    <select class="form-control" id="field_service" name="service" formControlName="service">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="consultationResourceOption.id === editForm.get('service')!.value?.id ? editForm.get('service')!.value : consultationResourceOption" *ngFor="let consultationResourceOption of consultationresources; trackBy: trackById">{{ consultationResourceOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

@@ -1,0 +1,24 @@
+{
+  "hospitalManagementSystemApp": {
+    "medicineGroup": {
+      "home": {
+        "title": "Medicine Groups",
+        "createLabel": "Create a new Medicine Group",
+        "createOrEditLabel": "Create or edit a Medicine Group",
+        "notFound": "No Medicine Groups found"
+      },
+      "created": "A new Medicine Group is created with identifier {{ param }}",
+      "updated": "A Medicine Group is updated with identifier {{ param }}",
+      "deleted": "A Medicine Group is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medicine Group {{ id }}?"
+      },
+      "detail": {
+        "title": "Medicine Group"
+      },
+      "name": "Name",
+      "descriptions": "Descriptions",
+      "medicines": "Medicines"
+    }
+  }
+}

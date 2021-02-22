@@ -1,0 +1,25 @@
+{
+  "hospitalManagementSystemApp": {
+    "measurementUnit": {
+      "home": {
+        "title": "Measurement Units",
+        "createLabel": "Create a new Measurement Unit",
+        "createOrEditLabel": "Create or edit a Measurement Unit",
+        "notFound": "No Measurement Units found"
+      },
+      "created": "A new Measurement Unit is created with identifier {{ param }}",
+      "updated": "A Measurement Unit is updated with identifier {{ param }}",
+      "deleted": "A Measurement Unit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Measurement Unit {{ id }}?"
+      },
+      "detail": {
+        "title": "Measurement Unit"
+      },
+      "unit": "Unit",
+      "symbol": "Symbol",
+      "quantity": "Quantity",
+      "medicineCategories": "Medicine Categories"
+    }
+  }
+}

@@ -1,0 +1,54 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="consultationResource">
+            <h2><span jhiTranslate="hospitalManagementSystemApp.consultationResource.detail.title">Consultation Resource</span> {{ consultationResource.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalManagementSystemApp.consultationResource.fromdate">Fromdate</span></dt>
+                <dd>
+                    <span>{{ consultationResource.fromdate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.consultationResource.todate">Todate</span></dt>
+                <dd>
+                    <span>{{ consultationResource.todate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.consultationResource.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{ consultationResource.isActive }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.consultationResource.isAdmitted">Is Admitted</span></dt>
+                <dd>
+                    <span>{{ consultationResource.isAdmitted }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.consultationResource.staff">Staff</span></dt>
+                <dd>
+                    <div *ngIf="consultationResource.staff">
+                        <a [routerLink]="['/staff', consultationResource.staff?.id, 'view']">{{ consultationResource.staff?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.consultationResource.patient">Patient</span></dt>
+                <dd>
+                    <div *ngIf="consultationResource.patient">
+                        <a [routerLink]="['/patient', consultationResource.patient?.id, 'view']">{{ consultationResource.patient?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/consultation-resource', consultationResource.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

@@ -1,0 +1,66 @@
+{
+  "name": "Department",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "unique"
+      ]
+    },
+    {
+      "fieldName": "hierarchy",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "descriptions",
+      "fieldType": "String"
+    },
+    {
+      "fieldName": "openingDate",
+      "fieldType": "LocalDate"
+    },
+    {
+      "fieldName": "extraId",
+      "fieldType": "String"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "department",
+      "otherEntityRelationshipName": "parent",
+      "relationshipName": "children"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "staff",
+      "otherEntityRelationshipName": "department",
+      "relationshipName": "staffs"
+    },
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "transactions",
+      "otherEntityRelationshipName": "department",
+      "relationshipName": "transactions"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "department",
+      "otherEntityRelationshipName": "children",
+      "relationshipName": "parent",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210222121539",
+  "entityTableName": "department",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

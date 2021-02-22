@@ -1,0 +1,68 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="staff">
+            <h2><span jhiTranslate="hospitalManagementSystemApp.staff.detail.title">Staff</span> {{ staff.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.username">Username</span></dt>
+                <dd>
+                    <span>{{ staff.username }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.fullName">Full Name</span></dt>
+                <dd>
+                    <span>{{ staff.fullName }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.contacts">Contacts</span></dt>
+                <dd>
+                    <span>{{ staff.contacts }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.imageUrl">Image Url</span></dt>
+                <dd>
+                    <span>{{ staff.imageUrl }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.level">Level</span></dt>
+                <dd>
+                    <span>{{ staff.level }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.email">Email</span></dt>
+                <dd>
+                    <span>{{ staff.email }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.isActive">Is Active</span></dt>
+                <dd>
+                    <span>{{ staff.isActive }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.isAcailable">Is Acailable</span></dt>
+                <dd>
+                    <span>{{ staff.isAcailable }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.user">User</span></dt>
+                <dd>
+                    {{ staff.user?.id }}
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.staff.department">Department</span></dt>
+                <dd>
+                    <div *ngIf="staff.department">
+                        <a [routerLink]="['/department', staff.department?.id, 'view']">{{ staff.department?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/staff', staff.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

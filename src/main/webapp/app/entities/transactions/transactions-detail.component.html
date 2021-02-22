@@ -1,0 +1,66 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <div *ngIf="transactions">
+            <h2><span jhiTranslate="hospitalManagementSystemApp.transactions.detail.title">Transactions</span> {{ transactions.id }}</h2>
+
+            <hr>
+
+            <jhi-alert-error></jhi-alert-error>
+
+            <dl class="row-md jh-entity-details">
+                <dt><span jhiTranslate="hospitalManagementSystemApp.transactions.currencyCode">Currency Code</span></dt>
+                <dd>
+                    <span>{{ transactions.currencyCode }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.transactions.amount">Amount</span></dt>
+                <dd>
+                    <span>{{ transactions.amount }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.transactions.isReversed">Is Reversed</span></dt>
+                <dd>
+                    <span>{{ transactions.isReversed }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.transactions.transactionDate">Transaction Date</span></dt>
+                <dd>
+                    <span>{{ transactions.transactionDate }}</span>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.transactions.medicalService">Medical Service</span></dt>
+                <dd>
+                    <div *ngIf="transactions.medicalService">
+                        <a [routerLink]="['/medical-service', transactions.medicalService?.id, 'view']">{{ transactions.medicalService?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.transactions.department">Department</span></dt>
+                <dd>
+                    <div *ngIf="transactions.department">
+                        <a [routerLink]="['/department', transactions.department?.id, 'view']">{{ transactions.department?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.transactions.consultation">Consultation</span></dt>
+                <dd>
+                    <div *ngIf="transactions.consultation">
+                        <a [routerLink]="['/consultation-resource', transactions.consultation?.id, 'view']">{{ transactions.consultation?.id }}</a>
+                    </div>
+                </dd>
+                <dt><span jhiTranslate="hospitalManagementSystemApp.transactions.medicine">Medicine</span></dt>
+                <dd>
+                    <div *ngIf="transactions.medicine">
+                        <a [routerLink]="['/medicine', transactions.medicine?.id, 'view']">{{ transactions.medicine?.id }}</a>
+                    </div>
+                </dd>
+            </dl>
+
+            <button type="submit"
+                    (click)="previousState()"
+                    class="btn btn-info">
+                <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+            </button>
+
+            <button type="button"
+                    [routerLink]="['/transactions', transactions.id, 'edit']"
+                    class="btn btn-primary">
+                <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+            </button>
+        </div>
+    </div>
+</div>

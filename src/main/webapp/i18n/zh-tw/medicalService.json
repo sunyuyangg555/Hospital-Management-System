@@ -1,0 +1,25 @@
+{
+  "hospitalManagementSystemApp": {
+    "medicalService": {
+      "home": {
+        "title": "Medical Services",
+        "createLabel": "建立一筆新的 Medical Service",
+        "createOrEditLabel": "建立或編輯 Medical Service",
+        "notFound": "No Medical Services found"
+      },
+      "created": "新的 Medical Service 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Medical Service 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Medical Service 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Medical Service {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Medical Service"
+      },
+      "name": "Name",
+      "isActive": "Is Active",
+      "price": "Price",
+      "transcations": "Transcations"
+    }
+  }
+}

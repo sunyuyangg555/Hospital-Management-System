@@ -1,0 +1,24 @@
+{
+  "hospitalManagementSystemApp": {
+    "admissionVisit": {
+      "home": {
+        "title": "Admission Visits",
+        "createLabel": "Create a new Admission Visit",
+        "createOrEditLabel": "Create or edit a Admission Visit",
+        "notFound": "No Admission Visits found"
+      },
+      "created": "A new Admission Visit is created with identifier {{ param }}",
+      "updated": "A Admission Visit is updated with identifier {{ param }}",
+      "deleted": "A Admission Visit is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Admission Visit {{ id }}?"
+      },
+      "detail": {
+        "title": "Admission Visit"
+      },
+      "symptoms": "Symptoms",
+      "dateTime": "Date Time",
+      "admission": "Admission"
+    }
+  }
+}

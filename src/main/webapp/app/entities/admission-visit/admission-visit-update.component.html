@@ -1,0 +1,60 @@
+<div class="row justify-content-center">
+    <div class="col-8">
+        <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+            <h2 id="jhi-admission-visit-heading" jhiTranslate="hospitalManagementSystemApp.admissionVisit.home.createOrEditLabel">Create or edit a Admission Visit</h2>
+
+            <div>
+                <jhi-alert-error></jhi-alert-error>
+
+                <div class="form-group" [hidden]="!editForm.get('id')!.value">
+                    <label for="id" jhiTranslate="global.field.id">ID</label>
+                    <input type="text" class="form-control" id="id" name="id" formControlName="id" readonly />
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.admissionVisit.symptoms" for="field_symptoms">Symptoms</label>
+                    <input type="text" class="form-control" name="symptoms" id="field_symptoms"
+                           formControlName="symptoms"/>
+                    <div *ngIf="editForm.get('symptoms')!.invalid && (editForm.get('symptoms')!.dirty || editForm.get('symptoms')!.touched)">
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('symptoms')?.errors?.required" jhiTranslate="entity.validation.required">
+                        This field is required.
+                        </small>
+                        <small class="form-text text-danger"
+                               *ngIf="editForm.get('symptoms')?.errors?.maxlength" jhiTranslate="entity.validation.maxlength" [translateValues]="{ max: 550 }">
+                        This field cannot be longer than 550 characters.
+                        </small>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.admissionVisit.dateTime" for="field_dateTime">Date Time</label>
+                    <div class="input-group">
+                        <input id="field_dateTime" type="text" class="form-control" name="dateTime" ngbDatepicker #dateTimeDp="ngbDatepicker" formControlName="dateTime"/>
+                        <span class="input-group-append">
+                            <button type="button" class="btn btn-secondary" (click)="dateTimeDp.toggle()"><fa-icon icon="calendar-alt"></fa-icon></button>
+                        </span>
+                    </div>
+                </div>
+
+                <div class="form-group">
+                    <label class="form-control-label" jhiTranslate="hospitalManagementSystemApp.admissionVisit.admission" for="field_admission">Admission</label>
+                    <select class="form-control" id="field_admission" name="admission" formControlName="admission">
+                        <option [ngValue]="null"></option>
+                        <option [ngValue]="admissionOption.id === editForm.get('admission')!.value?.id ? editForm.get('admission')!.value : admissionOption" *ngFor="let admissionOption of admissions; trackBy: trackById">{{ admissionOption.id }}</option>
+                    </select>
+                </div>
+            </div>
+
+            <div>
+                <button type="button" id="cancel-save" class="btn btn-secondary" (click)="previousState()">
+                    <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+                </button>
+
+                <button type="submit" id="save-entity" [disabled]="editForm.invalid || isSaving" class="btn btn-primary">
+                    <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+                </button>
+            </div>
+        </form>
+    </div>
+</div>

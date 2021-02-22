@@ -1,0 +1,48 @@
+{
+  "name": "MedicineCategory",
+  "fields": [
+    {
+      "fieldName": "name",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "200"
+    },
+    {
+      "fieldName": "descriptions",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "350"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "one-to-many",
+      "otherEntityName": "medicine",
+      "otherEntityRelationshipName": "category",
+      "relationshipName": "medicines"
+    },
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "measurementUnit",
+      "otherEntityRelationshipName": "medicineCategories",
+      "relationshipName": "measurementUnit",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210222122339",
+  "entityTableName": "medicine_category",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

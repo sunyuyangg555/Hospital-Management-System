@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="utf-8"?>
+<databaseChangeLog
+    xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+    xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog http://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.9.xsd">
+    <!--
+        Added the constraints for entity Transactions.
+    -->
+    <changeSet id="20210222121339-2" author="jhipster">
+        
+        <addForeignKeyConstraint baseColumnNames="medical_service_id"
+                                 baseTableName="transactions"
+                                 constraintName="fk_transactions_medical_service_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medical_service"/>
+
+        <addForeignKeyConstraint baseColumnNames="department_id"
+                                 baseTableName="transactions"
+                                 constraintName="fk_transactions_department_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="department"/>
+
+        <addForeignKeyConstraint baseColumnNames="consultation_id"
+                                 baseTableName="transactions"
+                                 constraintName="fk_transactions_consultation_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="consultation_resource"/>
+
+        <addForeignKeyConstraint baseColumnNames="medicine_id"
+                                 baseTableName="transactions"
+                                 constraintName="fk_transactions_medicine_id"
+                                 referencedColumnNames="id"
+                                 referencedTableName="medicine"/>
+
+    </changeSet>
+</databaseChangeLog>

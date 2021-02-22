@@ -1,0 +1,30 @@
+{
+  "hospitalManagementSystemApp": {
+    "consultationResource": {
+      "home": {
+        "title": "Consultation Resources",
+        "createLabel": "建立一筆新的 Consultation Resource",
+        "createOrEditLabel": "建立或編輯 Consultation Resource",
+        "notFound": "No Consultation Resources found"
+      },
+      "created": "新的 Consultation Resource 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Consultation Resource 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Consultation Resource 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Consultation Resource {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Consultation Resource"
+      },
+      "fromdate": "Fromdate",
+      "todate": "Todate",
+      "isActive": "Is Active",
+      "isAdmitted": "Is Admitted",
+      "diagnoses": "Diagnoses",
+      "admissions": "Admissions",
+      "transactions": "Transactions",
+      "staff": "Staff",
+      "patient": "Patient"
+    }
+  }
+}

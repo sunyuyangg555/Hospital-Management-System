@@ -1,0 +1,25 @@
+{
+  "hospitalManagementSystemApp": {
+    "bed": {
+      "home": {
+        "title": "Beds",
+        "createLabel": "Create a new Bed",
+        "createOrEditLabel": "Create or edit a Bed",
+        "notFound": "No Beds found"
+      },
+      "created": "A new Bed is created with identifier {{ param }}",
+      "updated": "A Bed is updated with identifier {{ param }}",
+      "deleted": "A Bed is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Bed {{ id }}?"
+      },
+      "detail": {
+        "title": "Bed"
+      },
+      "identifier": "Identifier",
+      "isOccupied": "Is Occupied",
+      "ward": "Ward",
+      "admissions": "Admissions"
+    }
+  }
+}

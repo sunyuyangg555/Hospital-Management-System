@@ -1,0 +1,38 @@
+{
+  "name": "AdmissionVisit",
+  "fields": [
+    {
+      "fieldName": "symptoms",
+      "fieldType": "String",
+      "fieldValidateRules": [
+        "required",
+        "maxlength"
+      ],
+      "fieldValidateRulesMaxlength": "550"
+    },
+    {
+      "fieldName": "dateTime",
+      "fieldType": "LocalDate"
+    }
+  ],
+  "relationships": [
+    {
+      "relationshipType": "many-to-one",
+      "otherEntityName": "admission",
+      "otherEntityRelationshipName": "visits",
+      "relationshipName": "admission",
+      "otherEntityField": "id"
+    }
+  ],
+  "changelogDate": "20210222122539",
+  "entityTableName": "admission_visit",
+  "dto": "no",
+  "pagination": "no",
+  "service": "no",
+  "jpaMetamodelFiltering": false,
+  "fluentMethods": true,
+  "readOnly": false,
+  "embedded": false,
+  "clientRootFolder": "",
+  "applications": "*"
+}

@@ -7,6 +7,23 @@
       "jhipster-needle-menu-add-element": "JHipster will add additional menu entries here (do not translate!)",
       "entities": {
         "main": "Entities",
+        "transactions": "Transactions",
+        "medicalService": "Medical Service",
+        "department": "Department",
+        "consultationResource": "Consultation Resource",
+        "medicine": "Medicine",
+        "staff": "Staff",
+        "patient": "Patient",
+        "diagnosis": "Diagnosis",
+        "admission": "Admission",
+        "medicineGroup": "Medicine Group",
+        "medicineCategory": "Medicine Category",
+        "bed": "Bed",
+        "admissionVisit": "Admission Visit",
+        "ward": "Ward",
+        "measurementUnit": "Measurement Unit",
+        "role": "Role",
+        "privilege": "Privilege",
         "jhipster-needle-menu-add-entry": "JHipster will add additional entities here (do not translate!)"
       },
       "account": {

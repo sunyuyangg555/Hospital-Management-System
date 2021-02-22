@@ -1,0 +1,25 @@
+{
+  "hospitalManagementSystemApp": {
+    "medicalService": {
+      "home": {
+        "title": "Medical Services",
+        "createLabel": "Create a new Medical Service",
+        "createOrEditLabel": "Create or edit a Medical Service",
+        "notFound": "No Medical Services found"
+      },
+      "created": "A new Medical Service is created with identifier {{ param }}",
+      "updated": "A Medical Service is updated with identifier {{ param }}",
+      "deleted": "A Medical Service is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Medical Service {{ id }}?"
+      },
+      "detail": {
+        "title": "Medical Service"
+      },
+      "name": "Name",
+      "isActive": "Is Active",
+      "price": "Price",
+      "transcations": "Transcations"
+    }
+  }
+}

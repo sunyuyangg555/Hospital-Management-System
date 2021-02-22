@@ -1,0 +1,32 @@
+{
+  "hospitalManagementSystemApp": {
+    "staff": {
+      "home": {
+        "title": "Staff",
+        "createLabel": "建立一筆新的 Staff",
+        "createOrEditLabel": "建立或編輯 Staff",
+        "notFound": "No Staff found"
+      },
+      "created": "新的 Staff 建立成功，識別碼為 {{ param }}",
+      "updated": "識別碼為 {{ param }} 的 Staff 更新成功",
+      "deleted": "識別碼為 {{ param }} 的 Staff 刪除成功",
+      "delete": {
+        "question": "您確定要刪除 Staff {{ id }} 嗎?"
+      },
+      "detail": {
+        "title": "Staff"
+      },
+      "username": "Username",
+      "fullName": "Full Name",
+      "contacts": "Contacts",
+      "imageUrl": "Image Url",
+      "level": "Level",
+      "email": "Email",
+      "isActive": "Is Active",
+      "isAcailable": "Is Acailable",
+      "user": "User",
+      "services": "Services",
+      "department": "Department"
+    }
+  }
+}

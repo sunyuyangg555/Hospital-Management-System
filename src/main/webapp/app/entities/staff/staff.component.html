@@ -1,0 +1,85 @@
+<div>
+    <h2 id="page-heading">
+        <span jhiTranslate="hospitalManagementSystemApp.staff.home.title">Staff</span>
+
+        <button id="jh-create-entity" class="btn btn-primary float-right jh-create-entity create-staff" [routerLink]="['/staff/new']">
+            <fa-icon icon="plus"></fa-icon>
+            <span  jhiTranslate="hospitalManagementSystemApp.staff.home.createLabel">
+            Create a new Staff
+            </span>
+        </button>
+    </h2>
+
+    <jhi-alert-error></jhi-alert-error>
+
+    <jhi-alert></jhi-alert>
+
+    <div class="alert alert-warning" id="no-result" *ngIf="staff?.length === 0">
+        <span jhiTranslate="hospitalManagementSystemApp.staff.home.notFound">No staff found</span>
+    </div>
+
+    <div class="table-responsive" id="entities" *ngIf="staff && staff.length > 0">
+        <table class="table table-striped" aria-describedby="page-heading">
+            <thead>
+                <tr>
+                    <th scope="col" ><span jhiTranslate="global.field.id">ID</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.username">Username</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.fullName">Full Name</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.contacts">Contacts</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.imageUrl">Image Url</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.level">Level</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.email">Email</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.isActive">Is Active</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.isAcailable">Is Acailable</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.user">User</span></th>
+                    <th scope="col" ><span jhiTranslate="hospitalManagementSystemApp.staff.department">Department</span></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr *ngFor="let staff of staff ;trackBy: trackId">
+                    <td><a [routerLink]="['/staff', staff.id, 'view']">{{ staff.id }}</a></td>
+                    <td>{{ staff.username }}</td>
+                    <td>{{ staff.fullName }}</td>
+                    <td>{{ staff.contacts }}</td>
+                    <td>{{ staff.imageUrl }}</td>
+                    <td>{{ staff.level }}</td>
+                    <td>{{ staff.email }}</td>
+                    <td>{{ staff.isActive }}</td>
+                    <td>{{ staff.isAcailable }}</td>
+                    <td>
+                        {{ staff.user?.id }}
+                    </td>
+                    <td>
+                        <div *ngIf="staff.department">
+                            <a [routerLink]="['/department', staff.department?.id, 'view']" >{{ staff.department?.id }}</a>
+                        </div>
+                    </td>
+                    <td class="text-right">
+                        <div class="btn-group">
+                            <button type="submit"
+                                    [routerLink]="['/staff', staff.id, 'view']"
+                                    class="btn btn-info btn-sm">
+                                <fa-icon icon="eye"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+                            </button>
+
+                            <button type="submit"
+                                    [routerLink]="['/staff', staff.id, 'edit']"
+                                    class="btn btn-primary btn-sm">
+                                <fa-icon icon="pencil-alt"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+                            </button>
+
+                            <button type="submit" (click)="delete(staff)"
+                                    class="btn btn-danger btn-sm">
+                                <fa-icon icon="times"></fa-icon>
+                                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+                            </button>
+                        </div>
+                    </td>
+                </tr>
+            </tbody>
+        </table>
+    </div>
+</div>
